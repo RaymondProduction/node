@@ -1,10 +1,26 @@
-var mymodule = require('./mymodule.js') ;
+var getFileList = require('./mymodule.js') ;
+var dir = process.argv[2];
+var filterStr = process.argv[3];
 
-const path = require('path');
-
-mymodule(process.argv[2],process.argv[3],function(err, list) {
+getFileList(dir,filterStr,function(err, list) {
    list.forEach(function(name, i, list) {
-      if (path.extname(name)=='.'+process.argv[3]) console.log(name);
+      console.log(name);
    });
  });
 
+/* other solution
+
+   var filterFn = require('./solution_filter.js')
+    var dir = process.argv[2]
+    var filterStr = process.argv[3]
+    
+    filterFn(dir, filterStr, function (err, list) {
+      if (err) {
+        return console.error('There was an error:', err)
+      }
+    
+      list.forEach(function (file) {
+        console.log(file)
+      })
+    })
+*/
