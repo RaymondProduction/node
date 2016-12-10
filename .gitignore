@@ -1,0 +1,6 @@
+
+#If the file contains a symbol "~"  at the end
+*.*~
+
+#If directory has got name "node_modules" then ignore
+node_modules
