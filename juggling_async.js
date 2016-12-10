@@ -29,6 +29,7 @@ async.map(urls, http.get, function(err, res) {
   res.on("end",function(){
     console.log(buf.length);
     console.log(buf);
+  });
 });
 
 
